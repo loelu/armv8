@@ -14,18 +14,18 @@ Linker script and memory map
 
 LOAD build/main.o
 
-.init           0x00008000       0x24
+.init           0x00008000       0x50
  *(.init)
- .init          0x00008000       0x24 build/main.o
+ .init          0x00008000       0x50 build/main.o
                 0x00008000                _start
 
-.text           0x00008024        0x0
+.text           0x00008050        0x0
  *(.text)
- .text          0x00008024        0x0 build/main.o
+ .text          0x00008050        0x0 build/main.o
 
-.data           0x00008024        0x0
+.data           0x00008050        0x0
  *(.data)
- .data          0x00008024        0x0 build/main.o
+ .data          0x00008050        0x0 build/main.o
 
 /DISCARD/
  *(*)
