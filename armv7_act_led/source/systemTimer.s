@@ -1,17 +1,17 @@
 .globl GetTimerAddress
-	GetTimerAddress:
+GetTimerAddress: // return in r0 timer address
 	ldr r0,=0x3F003000
 	mov pc,lr
 
 .globl GetTimeStamp
-	GetTimeStamp:
+GetTimeStamp: // return in r0 and r1 the timestamp
 	push {lr}
 	bl GetTimerAddress
-	ldrd r0,r1,[r0,#4] // save the 8bit counter in the register r0 and r1
+	ldrd r0,r1,[r0,#4] // save the 8byte counter in the register r0 and r1
 	pop {pc}
 
-	.globl Wait
-	Wait: // system timer description is on p. 172
+.globl Wait
+Wait: // parameter r0 delay duration
 	delayDur .req r2 
 	mov delayDur,r0
 	push {lr}
