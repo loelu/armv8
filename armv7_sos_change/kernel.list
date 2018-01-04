@@ -1,0 +1,66 @@
+
+build/output.elf:     file format elf32-littlearm
+
+
+Disassembly of section .init:
+
+00008000 <_start>:
+    8000:	eaffffff 	b	8004 <main>
+
+Disassembly of section .text:
+
+00008004 <main>:
+    8004:	e3a0d902 	mov	sp, #32768	; 0x8000
+    8008:	e59f00a4 	ldr	r0, [pc, #164]	; 80b4 <loop3$+0x10>
+    800c:	e3a01001 	mov	r1, #1
+    8010:	e1a01a81 	lsl	r1, r1, #21
+    8014:	e5801004 	str	r1, [r0, #4]
+    8018:	e3a04038 	mov	r4, #56	; 0x38
+    801c:	e3a05000 	mov	r5, #0
+
+00008020 <loop1$>:
+    8020:	e59f008c 	ldr	r0, [pc, #140]	; 80b4 <loop3$+0x10>
+    8024:	e3a02011 	mov	r2, #17
+    8028:	e3a01001 	mov	r1, #1
+    802c:	e1a01511 	lsl	r1, r1, r5
+    8030:	e0011004 	and	r1, r1, r4
+    8034:	e1a01531 	lsr	r1, r1, r5
+    8038:	e3a03001 	mov	r3, #1
+    803c:	e1a03213 	lsl	r3, r3, r2
+    8040:	e580301c 	str	r3, [r0, #28]
+    8044:	e3310000 	teq	r1, #0
+    8048:	059f0068 	ldreq	r0, [pc, #104]	; 80b8 <loop3$+0x14>
+    804c:	159f0068 	ldrne	r0, [pc, #104]	; 80bc <loop3$+0x18>
+    8050:	eb00000c 	bl	8088 <Wait>
+    8054:	e59f0058 	ldr	r0, [pc, #88]	; 80b4 <loop3$+0x10>
+    8058:	e3a02011 	mov	r2, #17
+    805c:	e3a03001 	mov	r3, #1
+    8060:	e1a03213 	lsl	r3, r3, r2
+    8064:	e5803028 	str	r3, [r0, #40]	; 0x28
+    8068:	e59f0048 	ldr	r0, [pc, #72]	; 80b8 <loop3$+0x14>
+    806c:	eb000005 	bl	8088 <Wait>
+    8070:	e2855001 	add	r5, r5, #1
+    8074:	e3550008 	cmp	r5, #8
+    8078:	83a05000 	movhi	r5, #0
+    807c:	859f0038 	ldrhi	r0, [pc, #56]	; 80bc <loop3$+0x18>
+    8080:	8b000000 	blhi	8088 <Wait>
+    8084:	eaffffe5 	b	8020 <loop1$>
+
+00008088 <Wait>:
+    8088:	e1a02000 	mov	r2, r0
+    808c:	e59f002c 	ldr	r0, [pc, #44]	; 80c0 <loop3$+0x1c>
+    8090:	e3a01000 	mov	r1, #0
+    8094:	e580100c 	str	r1, [r0, #12]
+    8098:	e5901004 	ldr	r1, [r0, #4]
+    809c:	e0822001 	add	r2, r2, r1
+    80a0:	e580200c 	str	r2, [r0, #12]
+
+000080a4 <loop3$>:
+    80a4:	e5901000 	ldr	r1, [r0]
+    80a8:	e3510001 	cmp	r1, #1
+    80ac:	1afffffc 	bne	80a4 <loop3$>
+    80b0:	e1a0f00e 	mov	pc, lr
+    80b4:	3f200000 	.word	0x3f200000
+    80b8:	0003d090 	.word	0x0003d090
+    80bc:	000b71b0 	.word	0x000b71b0
+    80c0:	3f003000 	.word	0x3f003000
