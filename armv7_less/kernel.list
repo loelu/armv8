@@ -13,15 +13,15 @@ Disassembly of section .text:
     8004:	e3a0d902 	mov	sp, #32768	; 0x8000
     8008:	e59f0074 	ldr	r0, [pc, #116]	; 8084 <loop2$+0x1c>
     800c:	e3a01001 	mov	r1, #1
-    8010:	e1a01a81 	lsl	r1, r1, #21
-    8014:	e5801004 	str	r1, [r0, #4]
-    8018:	e59f4068 	ldr	r4, [pc, #104]	; 8088 <loop2$+0x20>
-    801c:	e3a05000 	mov	r5, #0
+    8010:	e59f4070 	ldr	r4, [pc, #112]	; 8088 <loop2$+0x20>
+    8014:	e3a05000 	mov	r5, #0
+    8018:	e1a01a81 	lsl	r1, r1, #21
+    801c:	e5801004 	str	r1, [r0, #4]
 
 00008020 <loop1$>:
     8020:	e59f005c 	ldr	r0, [pc, #92]	; 8084 <loop2$+0x1c>
-    8024:	e3a02011 	mov	r2, #17
-    8028:	e3a01001 	mov	r1, #1
+    8024:	e3a01001 	mov	r1, #1
+    8028:	e3a02011 	mov	r2, #17
     802c:	e1a01511 	lsl	r1, r1, r5
     8030:	e0011004 	and	r1, r1, r4
     8034:	e1a01531 	lsr	r1, r1, r5
@@ -43,7 +43,7 @@ Disassembly of section .text:
     806c:	e3510001 	cmp	r1, #1
     8070:	1afffffc 	bne	8068 <loop2$>
     8074:	e2855001 	add	r5, r5, #1
-    8078:	e3550020 	cmp	r5, #32
+    8078:	e355001f 	cmp	r5, #31
     807c:	83a05000 	movhi	r5, #0
     8080:	eaffffe6 	b	8020 <loop1$>
     8084:	3f200000 	.word	0x3f200000
