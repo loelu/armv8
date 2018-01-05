@@ -13,10 +13,10 @@ Disassembly of section .text:
     8004:	e3a0d902 	mov	sp, #32768	; 0x8000
     8008:	e59f00a4 	ldr	r0, [pc, #164]	; 80b4 <loop3$+0x10>
     800c:	e3a01001 	mov	r1, #1
-    8010:	e1a01a81 	lsl	r1, r1, #21
-    8014:	e5801004 	str	r1, [r0, #4]
-    8018:	e3a04038 	mov	r4, #56	; 0x38
-    801c:	e3a05000 	mov	r5, #0
+    8010:	e3a04038 	mov	r4, #56	; 0x38
+    8014:	e3a05000 	mov	r5, #0
+    8018:	e1a01a81 	lsl	r1, r1, #21
+    801c:	e5801004 	str	r1, [r0, #4]
 
 00008020 <loop1$>:
     8020:	e59f008c 	ldr	r0, [pc, #140]	; 80b4 <loop3$+0x10>
